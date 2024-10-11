@@ -10,10 +10,21 @@ import skye from './assets/skye_icon.png'
 import tracker from './assets/tracker_icon.png'
 import zuma from './assets/zuma_icon.png'
 
-function Card({imageSrc, onCardClick}) {
+function Card({imageSrc}) {
+  const[isActive, setIsActive] = useState(false);
+  const hadleFlipCard = () => {
+    setIsActive(!isActive)
+  }
   return (
-    <div className="card" onClick={onCardClick}>
-      <img src={imageSrc} alt="image" className="card-img" />
+    <div className={`card ${isActive ? "card-toggle" : ""}`} onClick={hadleFlipCard}>
+      <div className="card-inner">
+        <div className="card-front">
+          <h1>?</h1>
+        </div>
+        <div className="card-back">
+          <img src={imageSrc} alt="image" className="card-img" />
+        </div>
+      </div>
     </div>
   )
 }

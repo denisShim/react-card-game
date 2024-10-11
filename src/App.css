@@ -10,3 +10,49 @@
   grid-template-columns: repeat(4, 100px);
   gap: 20px;
 }
+
+.card {
+  position: relative;
+  perspective: 300px;
+  width: 100px;
+  height: 100px;
+}
+
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* .card:hover .card-inner {
+  transform: rotateY(-180deg);
+} */
+
+.card-toggle .card-inner {
+  transform: rotateY(-180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: linear-gradient(to bottom right, #ff4b2b, #ff416c);
+  border-radius: 8px;
+}
+
+.card-back {
+  background: linear-gradient(to bottom right, #2b32b2, #416cff);
+  transform: rotateY(180deg);
+
+}
+
+.card-front h1 {
+  font-size: 70px;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+}
